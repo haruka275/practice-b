@@ -1,0 +1,70 @@
+/* 商品情報一覧画面のスタイル */
+.card-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* 検索フォーム */
+.form-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form-inline .form-group {
+    width: 30%; /* 各入力フォームに同じ幅 */
+}
+
+.form-inline input, .form-inline select {
+    width: 100%; /* 入力フィールドに幅を100% */
+}
+
+/* 新規登録ボタン */
+.btn-warning {
+    background-color: #f0ad4e; /* オレンジ色 */
+    color: white;
+}
+
+/* ボタンの共通スタイル */
+.btn-info, .btn-warning, .btn-danger {
+    margin: 5px;
+}
+
+/* 商品一覧テーブル */
+.table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px; /* セル内の余白調整 */
+}
+
+.table img {
+    max-width: 50px;
+    height: auto;
+}
+
+.table td a {
+    margin: 0 5px;
+}
+
+/* ページネーション */
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination-wrapper .page-link {
+    color: #007bff;
+}

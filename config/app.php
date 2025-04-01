@@ -155,6 +155,7 @@ return [
     */
 
     'providers' => [
+        Laravel\Ui\UiServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...

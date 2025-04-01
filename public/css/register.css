@@ -1,0 +1,79 @@
+/* ユーザー新規登録画面のスタイル */
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    padding: 20px;
+}
+
+.card-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-field::placeholder {
+    color: #888;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 45%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-register {
+    background-color: #FF6A00; /* オレンジ */
+    color: white;
+    border: none;
+}
+
+.btn-back {
+    background-color: #00BFFF; /* 水色 */
+    color: white;
+    border: none;
+}
+
+/* 中央揃え */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group input {
+    text-align: center;
+}
+
+/* 入力フィールドの配置と文字の中央寄せ */
+.input-field {
+    text-align: center;
+}

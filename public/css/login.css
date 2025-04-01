@@ -1,0 +1,89 @@
+/* ログイン画面全体のスタイル */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* ログイン画面のタイトル */
+.login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 入力フォームのスタイル */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;  /* 枠内に収めるために追加 */
+    text-align: center;  /* フィールド内のテキストを中央に配置 */
+}
+
+/* フォーム内のラベル */
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ログインボタン */
+.btn-login {
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #00bcd4; /* ログインボタンの色 */
+    color: white;
+}
+
+/* 新規登録ボタン */
+.btn-register {
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #ff8c00; /* オレンジ色 */
+    color: white;
+}
+
+/* ボタンを横並びに配置 */
+.button-group {
+    display: flex;
+    justify-content: space-between;  /* 左右に配置 */
+    gap: 10px;  /* ボタン間の隙間 */
+}
+
+/* 新規登録ボタンのスタイル（リンクではなくボタンとして） */
+a.btn-register {
+    display: inline-block;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #ff8c00; /* オレンジ色 */
+    color: white;
+    text-align: center;
+    text-decoration: none;  /* 下線をなくす */
+}
+
+/* ログインボタンと新規登録ボタンを配置 */
+.button-group {
+    display: flex;
+    justify-content: space-between;  /* 左右に配置 */
+    gap: 10px;  /* ボタン間の隙間 */
+}

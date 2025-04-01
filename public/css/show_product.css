@@ -1,0 +1,121 @@
+/* 商品詳細画面のスタイル */
+
+/* 全体的なスタイル */
+.card-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* 商品情報表示のスタイル */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* 商品画像 */
+.card-body img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ボタン */
+.btn-warning {
+    background-color: #f0ad4e; /* オレンジ色 */
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-info {
+    background-color: #00bfff; /* 蛍光水色 */
+    color: white;
+}
+
+/* ボタンの共通スタイル */
+.btn-warning, .btn-info {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ボタンホバー時の効果 */
+.btn-warning:hover, .btn-info:hover {
+    opacity: 0.8;
+}
+
+
+/* 商品編集画面のスタイル */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    font-size: 24px;
+    color: #343a40;
+}
+
+.card-body {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select,
+input[type="file"] {
+    background-color: #f0f0f0; /* すべての入力フィールドを灰色背景に */
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    background-color: #dcdcdc; /* ファイル選択は灰色に */
+}
+
+button[type="submit"] {
+    background-color: #ff8c00; /* オレンジ色 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e07a00; /* ホバー時に少し濃いオレンジ */
+}
+
+.btn-info {
+    background-color: #00bcd4; /* 蛍光水色 */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-info:hover {
+    background-color: #00a6c3; /* ホバー時に少し濃い水色 */
+}
+
+/* 商品詳細画面と編集画面共通の入力フォームスタイル */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.card-body img {
+    max-width: 100%;
+    height: auto;
+}

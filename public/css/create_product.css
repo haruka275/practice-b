@@ -1,0 +1,70 @@
+/* 商品情報登録画面のスタイル */
+
+/* 全体的なスタイル */
+.card-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* フォームのスタイル */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* 商品名、メーカー、価格、在庫数の入力フィールドのスタイル */
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 商品画像ファイル選択の背景色 */
+.form-group input[type="file"] {
+    background-color: #d3d3d3; /* 灰色背景 */
+    padding: 10px;
+}
+
+/* コメントフィールド */
+.form-group textarea {
+    resize: vertical;
+}
+
+/* 登録ボタン */
+.btn-warning {
+    background-color: #f0ad4e; /* オレンジ色 */
+    color: white;
+    margin-right: 10px;
+}
+
+/* 戻るボタン */
+.btn-info {
+    background-color: #00bfff; /* 蛍光水色 */
+    color: white;
+}
+
+/* ボタンの共通スタイル */
+.btn-warning, .btn-info {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ボタンホバー時の効果 */
+.btn-warning:hover, .btn-info:hover {
+    opacity: 0.8;
+}
+
+/* フォーム入力欄のエラー表示 */
+.alert-danger {
+    margin-top: 10px;
+}
