@@ -17,9 +17,11 @@
                             <div class="form-group mr-3 w-25">
                                 <select name="manufacturer" class="form-control w-100">
                                     <option value="">メーカー名</option>
-                                    <option value="メーカー1" {{ request()->get('manufacturer') == 'メーカー1' ? 'selected' : '' }}>メーカー1</option>
-                                    <option value="メーカー2" {{ request()->get('manufacturer') == 'メーカー2' ? 'selected' : '' }}>メーカー2</option>
-                                    <option value="メーカー3" {{ request()->get('manufacturer') == 'メーカー3' ? 'selected' : '' }}>メーカー3</option>
+                                    @foreach($companies as $company)  <!-- 会社名をforeachで表示 -->
+                                        <option value="{{ $company->name }}" {{ request()->get('manufacturer') == $company->name ? 'selected' : '' }}>
+                                            {{ $company->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-info">検索</button>
@@ -49,10 +51,11 @@
                                 <td>{{ $product->product_name }}</td>
                                 <td>{{ $product->price }}円</td>
                                 <td>{{ $product->stock }}</td>
-                                <td>{{ $product->manufacturer }}</td>
+                                <td>{{ $product->company ? $product->company->name : '未登録' }}</td> <!-- メーカー名を表示 -->
                                 <td>
                                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">詳細表示</a>
-                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">編集</a>
+                                    <!-- 編集ボタンを削除 -->
+                                    <!-- <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">編集</a> -->
                                     <form method="POST" action="{{ route('products.destroy', $product->id) }}" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
@@ -66,6 +69,7 @@
 
                     <!-- ページネーション -->
                     <div class="pagination-wrapper">
+                    <div class="pagination pagination-sm">
                         {{ $products->links() }}
                     </div>
                 </div>

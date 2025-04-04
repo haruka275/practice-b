@@ -33,7 +33,7 @@
 
                     <div class="form-group">
                         <label>メーカー</label>
-                        <p>{{ $product->manufacturer }}</p>
+                        <p>{{ $product->company ? $product->company->name : '未登録' }}</p> <!-- 修正箇所 -->
                     </div>
 
                     <div class="form-group">

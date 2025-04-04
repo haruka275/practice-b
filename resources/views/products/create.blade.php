@@ -26,9 +26,16 @@
 
                         <!-- メーカー -->
                         <div class="form-group">
-                            <label for="manufacturer">メーカー*</label>
-                            <input type="text" id="manufacturer" name="manufacturer" class="form-control" value="{{ old('manufacturer') }}" required>
-                            @error('manufacturer')
+                            <label for="company_id">メーカー*</label>
+                            <select id="company_id" name="company_id" class="form-control" required>
+                                <option value="">メーカーを選択してください</option>
+                                @foreach($companies as $company)
+                                    <option value="{{ $company->id }}" {{ old('company_id') == $company->id ? 'selected' : '' }}>
+                                        {{ $company->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('company_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
