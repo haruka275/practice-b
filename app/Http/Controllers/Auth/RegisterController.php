@@ -15,23 +15,22 @@ class RegisterController extends Controller
     | Register Controller
     |--------------------------------------------------------------------------
     |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
+    | このコントローラは、新規ユーザーの登録、バリデーション、および作成を処理します。
+    | デフォルトでは、追加のコードなしでこの機能を提供するためにトレイトを使用します。
     |
     */
 
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * ユーザー登録後のリダイレクト先URL
      *
      * @var string
      */
     protected $redirectTo = '/home';
 
     /**
-     * Create a new controller instance.
+     * 新規インスタンスの作成
      *
      * @return void
      */
@@ -41,7 +40,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * ユーザー登録リクエストのバリデータを取得
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -51,12 +50,12 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'], // パスワード確認が必須
         ]);
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * バリデーションを通過したユーザーインスタンスの作成
      *
      * @param  array  $data
      * @return \App\Models\User

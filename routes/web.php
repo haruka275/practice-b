@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |-------------------------------------------------------------------------- 
@@ -17,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ログイン画面のルート追加
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+// 認証関連のルートを追加
 Auth::routes();  // 認証用ルートを追加
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
