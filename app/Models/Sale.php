@@ -9,7 +9,8 @@ class Sale extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_id'];
+    // 購入情報の保存を許可するフィールドを指定
+    protected $fillable = ['product_id', 'quantity', 'purchased_at'];
 
     // リレーション：Productに属する (Saleは1つのProductに属する)
     public function product()
