@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <!-- 検索フォーム -->
                     <div class="d-flex justify-content-between mb-4">
-                        <form id="search-form" class="form-inline w-100">
+                    <form id="search-form" class="form-inline w-100" method="GET" action="{{ route('products.index') }}">
                             <div class="form-group mr-3 w-25">
                                 <input type="text" class="form-control w-100" id="product_name" name="product_name" placeholder="商品名" value="{{ request()->get('product_name') }}">
                             </div>
@@ -18,7 +18,7 @@
                                 <select name="manufacturer" id="manufacturer" class="form-control w-100">
                                     <option value="">メーカー名</option>
                                     @foreach($companies as $company)
-                                    <option value="{{ $company->company_name }}" {{ request()->get('manufacturer') == $company->company_name ? 'selected' : '' }}>
+                                    <option value="{{ $company->id }}" {{ request()->get('manufacturer') == $company->id ? 'selected' : '' }}>
                                     {{ $company->company_name }}
                                         </option>
                                     @endforeach
@@ -38,7 +38,7 @@
                             <div class="form-group mr-3 w-25">
                                 <input type="number" class="form-control w-100" id="stock_max" name="stock_max" placeholder="在庫数 (最大)" value="{{ request()->get('stock_max') }}">
                             </div>
-                            <button type="button" id="search-btn" class="btn btn-info">検索</button>
+                            <button type="submit" class="btn btn-info">検索</button>
                         </form>
                         <!-- 新規登録ボタン -->
                         <a href="{{ route('products.create') }}" class="btn btn-warning">新規登録</a>
