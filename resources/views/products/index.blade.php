@@ -18,8 +18,8 @@
                                 <select name="manufacturer" id="manufacturer" class="form-control w-100">
                                     <option value="">メーカー名</option>
                                     @foreach($companies as $company)
-                                        <option value="{{ $company->name }}" {{ request()->get('manufacturer') == $company->name ? 'selected' : '' }}>
-                                            {{ $company->name }}
+                                    <option value="{{ $company->company_name }}" {{ request()->get('manufacturer') == $company->company_name ? 'selected' : '' }}>
+                                    {{ $company->company_name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -58,21 +58,7 @@
                             </tr>
                         </thead>
                         <tbody id="product-list">
-                            @foreach($products as $product)
-                            <tr id="product-{{ $product->id }}">
-                                <td>{{ $product->id }}</td>
-                                <td><img src="{{ asset('storage/'.$product->img_path) }}" alt="商品画像" width="50"></td>
-                                <td>{{ $product->product_name }}</td>
-                                <td>{{ $product->price }}円</td>
-                                <td>{{ $product->stock }}</td>
-                                <td>{{ $product->company ? $product->company->name : '未登録' }}</td>
-                                <td>
-                                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">詳細表示</a>
-                                    <!-- 削除フォーム -->
-                                    <button type="button" class="btn btn-danger delete-btn" data-product-id="{{ $product->id }}" data-product-name="{{ $product->product_name }}">削除</button>
-                                </td>
-                            </tr>
-                            @endforeach
+                        @include('products.partials.product_list')
                         </tbody>
                     </table>
 

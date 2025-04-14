@@ -31,7 +31,7 @@
                                 <option value="">メーカーを選択してください</option>
                                 @foreach($companies as $company)
                                     <option value="{{ $company->id }}" {{ old('company_id') == $company->id ? 'selected' : '' }}>
-                                        {{ $company->name }}
+                                    {{ $company->company_name }}
                                     </option>
                                 @endforeach
                             </select>

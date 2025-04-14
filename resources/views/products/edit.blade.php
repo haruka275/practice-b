@@ -31,7 +31,7 @@
 
                         <!-- メーカー名 -->
                         <div class="form-group">
-                            <label for="manufacturer">メーカー名*</label>
+                            <label for="company_id">メーカー名*</label>
                             <select name="company_id" class="form-control" required>
                                 <option value="">選択してください</option>
                                 @foreach($companies as $company)
