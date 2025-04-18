@@ -26,9 +26,7 @@ class ProductController extends Controller
         }
 
         if ($request->has('manufacturer') && $request->manufacturer != '') {
-            $query->whereHas('company', function ($q) use ($request) {
-                $q->where('company_name', 'like', '%' . $request->manufacturer . '%');
-            });
+            $query->where('company_id', $request->manufacturer);
         }
 
         if ($request->has('price_min') && $request->price_min != '') {

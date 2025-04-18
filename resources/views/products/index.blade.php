@@ -38,7 +38,7 @@
                             <div class="form-group mr-3 w-25">
                                 <input type="number" class="form-control w-100" id="stock_max" name="stock_max" placeholder="在庫数 (最大)" value="{{ request()->get('stock_max') }}">
                             </div>
-                            <button type="submit" class="btn btn-info">検索</button>
+                            <button type="submit" class="btn btn-info" id="search-btn">検索</button>
                         </form>
                         <!-- 新規登録ボタン -->
                         <a href="{{ route('products.create') }}" class="btn btn-warning">新規登録</a>
@@ -47,13 +47,16 @@
                     <!-- 商品一覧テーブル -->
                     <table class="table table-bordered" id="product-table">
                         <thead>
-                            <tr>
-                                <th><a href="{{ route('products.index', ['sort_column' => 'id', 'sort_direction' => $sortColumn === 'id' && $sortDirection === 'asc' ? 'desc' : 'asc']) }}">商品ID</a></th>
+                        <tr>
+                                @php
+                                    $queryParams = request()->except('sort_column', 'sort_direction');
+                                @endphp
+                                <th><a href="{{ route('products.index', array_merge($queryParams, ['sort_column' => 'id', 'sort_direction' => $sortColumn === 'id' && $sortDirection === 'asc' ? 'desc' : 'asc'])) }}">商品ID</a></th>
                                 <th>商品画像</th>
-                                <th><a href="{{ route('products.index', ['sort_column' => 'product_name', 'sort_direction' => $sortColumn === 'product_name' && $sortDirection === 'asc' ? 'desc' : 'asc']) }}">商品名</a></th>
-                                <th><a href="{{ route('products.index', ['sort_column' => 'price', 'sort_direction' => $sortColumn === 'price' && $sortDirection === 'asc' ? 'desc' : 'asc']) }}">価格</a></th>
-                                <th><a href="{{ route('products.index', ['sort_column' => 'stock', 'sort_direction' => $sortColumn === 'stock' && $sortDirection === 'asc' ? 'desc' : 'asc']) }}">在庫数</a></th>
-                                <th><a href="{{ route('products.index', ['sort_column' => 'company_id', 'sort_direction' => $sortColumn === 'company_id' && $sortDirection === 'asc' ? 'desc' : 'asc']) }}">メーカー名</a></th>
+                                <th><a href="{{ route('products.index', array_merge($queryParams, ['sort_column' => 'product_name', 'sort_direction' => $sortColumn === 'product_name' && $sortDirection === 'asc' ? 'desc' : 'asc'])) }}">商品名</a></th>
+                                <th><a href="{{ route('products.index', array_merge($queryParams, ['sort_column' => 'price', 'sort_direction' => $sortColumn === 'price' && $sortDirection === 'asc' ? 'desc' : 'asc'])) }}">価格</a></th>
+                                <th><a href="{{ route('products.index', array_merge($queryParams, ['sort_column' => 'stock', 'sort_direction' => $sortColumn === 'stock' && $sortDirection === 'asc' ? 'desc' : 'asc'])) }}">在庫数</a></th>
+                                <th><a href="{{ route('products.index', array_merge($queryParams, ['sort_column' => 'company_id', 'sort_direction' => $sortColumn === 'company_id' && $sortDirection === 'asc' ? 'desc' : 'asc'])) }}">メーカー名</a></th>
                                 <th>操作</th>
                             </tr>
                         </thead>
@@ -65,7 +68,7 @@
                     <!-- ページネーション -->
                     <div class="pagination-wrapper">
                         <div class="pagination pagination-sm">
-                            {{ $products->links() }}
+                        {{ $products->appends(request()->query())->links() }}
                         </div>
                     </div>
                 </div>
@@ -80,7 +83,8 @@
 <script>
     $(document).ready(function() {
         // 検索ボタンの非同期処理
-        $('#search-btn').on('click', function() {
+        $('#search-btn').on('click', function(e) {
+            e.preventDefault();
             var productName = $('#product_name').val();
             var manufacturer = $('#manufacturer').val();
             var priceMin = $('#price_min').val();
