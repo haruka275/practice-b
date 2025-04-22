@@ -21,45 +21,44 @@ class ProductController extends Controller
 
         $query = Product::with('company');
 
-        if ($request->has('product_name') && $request->product_name != '') {
+        if ($request->filled('product_name')) {
             $query->where('product_name', 'like', '%' . $request->product_name . '%');
         }
 
-        if ($request->has('manufacturer') && $request->manufacturer != '') {
+        if ($request->filled('manufacturer')) {
             $query->where('company_id', $request->manufacturer);
         }
 
-        if ($request->has('price_min') && $request->price_min != '') {
+        if ($request->filled('price_min')) {
             $query->where('price', '>=', $request->price_min);
         }
 
-        if ($request->has('price_max') && $request->price_max != '') {
+        if ($request->filled('price_max')) {
             $query->where('price', '<=', $request->price_max);
         }
 
-        if ($request->has('stock_min') && $request->stock_min != '') {
+        if ($request->filled('stock_min')) {
             $query->where('stock', '>=', $request->stock_min);
         }
 
-        if ($request->has('stock_max') && $request->stock_max != '') {
+        if ($request->filled('stock_max')) {
             $query->where('stock', '<=', $request->stock_max);
         }
 
         $query->orderBy($sortColumn, $sortDirection);
 
-        $products = $query->paginate(10);
+        $products = $query->paginate(10)->appends($request->query());
 
-    // 商品ごとの画像が存在するかどうかを確認
-    foreach ($products as $product) {
-        $product->img_exists = file_exists(public_path('storage/' . $product->img_path));  // 画像が存在するかチェック
-    }
+        foreach ($products as $product) {
+            $product->img_exists = file_exists(public_path('storage/' . $product->img_path));
+        }
 
         if ($request->ajax()) {
             $html = view('products.partials.product_list', compact('products'))->render();
-
+            $pagination = (string) $products->links('pagination::bootstrap-4');
             return response()->json([
                 'products' => $html,
-                'pagination' => (string) $products->links(),
+                'pagination' => $pagination,
             ]);
         }
 
